@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="234TreeAssingment6.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="QuadNode.h" />
     <ClInclude Include="TwoThreeFourTree.h" />
