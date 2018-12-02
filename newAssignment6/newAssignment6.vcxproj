@@ -152,9 +152,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="QuadNode.h" />
+    <ClInclude Include="TwoThreeFourTree.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="newAssignment6.cpp" />
+    <ClCompile Include="234TreeAssingment6.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
