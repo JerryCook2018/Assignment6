@@ -26,9 +26,9 @@ public:
 	TwoThreeFourTree();
 	bool add( ItemType& newEntry);
 	void inOrderTraversal(void visit(ItemType&), TwoThreeFourTree<ItemType>* tempNode);
-	bool remove(QuadNode<ItemType>* Ptr, const ItemType& entry);	//Henry S
+	bool removeItem(QuadNode<ItemType>* Ptr, const ItemType& entry);	//Henry S
 	QuadNode<ItemType>* findNode(QuadNode<ItemType>* treePtr, ItemType& entry); //Henry S
-	
+	void remove(const ItemType& entry);
 
 };
 #include "TwoThreeFourTree.cpp"

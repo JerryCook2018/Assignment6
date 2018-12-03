@@ -872,7 +872,7 @@ QuadNode<ItemType>* TwoThreeFourTree<ItemType>::findNode(QuadNode<ItemType>* tre
 
 //method code by Henry S//
 template<class ItemType>
-bool TwoThreeFourTree<ItemType>::remove(QuadNode<ItemType>* Ptr, const ItemType& entry)	//Henry S
+bool TwoThreeFourTree<ItemType>::removeItem(QuadNode<ItemType>* Ptr, const ItemType& entry)	//Henry S
 {
 	QuadNode<ItemType>* removeNode = findNode(Ptr, entry);
 	QuadNode<ItemType>* tempNode = new QuadNode<ItemType>();
@@ -965,31 +965,31 @@ bool TwoThreeFourTree<ItemType>::remove(QuadNode<ItemType>* Ptr, const ItemType&
 			}
 
 
-			if ((tempNode->getSmallItem() == entry) && (tempNode->getLargeItem() != -1))
+			if ((tempNode->getSmallItem() == entry) && (tempNode->getLargeItem() != NULL))
 			{
 				tempNode->setSmallItem(tempNode->getLargeItem());
-				tempNode->setLargeItem(-1);
+				tempNode->setLargeItem(NULL);
 			}
 
-			else if ((tempNode->getLargeItem() == entry) && (tempNode->getMidItem() != -1))
+			else if ((tempNode->getLargeItem() == entry) && (tempNode->getMidItem() != NULL))
 			{
 				tempNode->setLargeItem(tempNode->getMidItem());
-				tempNode->setMidItem(-1);
+				tempNode->setMidItem(NULL);
 
 			}
 
-			else if ((tempNode->getLargeItem() == entry) && (tempNode->getMidItem() == -1))
+			else if ((tempNode->getLargeItem() == entry) && (tempNode->getMidItem() == NULL))
 			{
-				tempNode->setLargeItem(-1);
+				tempNode->setLargeItem(NULL);
 
 			}
 
 			else if ((tempNode->getMidItem() == entry))
 			{
-				tempNode->setMidItem(-1);
+				tempNode->setMidItem(NULL);
 			}
 
-			else if (tempNode->getLargeItem() == -1)
+			else if (tempNode->getLargeItem() == NULL)
 			{
 
 
@@ -999,10 +999,10 @@ bool TwoThreeFourTree<ItemType>::remove(QuadNode<ItemType>* Ptr, const ItemType&
 
 				if (parentNode->isFourNode())
 				{
-					if (tempNode == parentNode->getRightChildPtr)
+					if (tempNode == parentNode->getRightChildPtr())
 					{
 						mergeNode == parentNode->getRightMidChildPtr();
-						if (mergeNode->getLargeItem() != -1)
+						if (mergeNode->getLargeItem() != NULL)
 						{
 
 						}
@@ -1012,4 +1012,12 @@ bool TwoThreeFourTree<ItemType>::remove(QuadNode<ItemType>* Ptr, const ItemType&
 		}
 	}
 
+}
+
+template<class ItemType>
+void TwoThreeFourTree<ItemType>::remove(const ItemType& entry)
+{
+	QuadNode<ItemType>* tempNode = rootPtr;
+
+	removeItem(tempNode, entry);
 }
