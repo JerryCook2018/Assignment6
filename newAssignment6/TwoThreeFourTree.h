@@ -1,3 +1,9 @@
+
+/**Assingment 6.    Jerry Cook and Henry Sagehorn
+ remove and removeItem developed and coded by Heny Sagehorn*/
+
+
+
 #pragma once
 #include "pch.h"
 #include "QuadNode.h"
@@ -26,9 +32,9 @@ public:
 	TwoThreeFourTree();
 	bool add( ItemType& newEntry);
 	void inOrderTraversal(void visit(ItemType&), TwoThreeFourTree<ItemType>* tempNode);
-	bool removeItem(QuadNode<ItemType>* Ptr, const ItemType& entry);	//Henry S
+	bool removeItem(QuadNode<ItemType>* Ptr,  ItemType& entry);	//Henry S
 	QuadNode<ItemType>* findNode(QuadNode<ItemType>* treePtr, ItemType& entry); //Henry S
-	void remove(const ItemType& entry);
+	void remove( ItemType& entry);
 
 };
 #include "TwoThreeFourTree.cpp"

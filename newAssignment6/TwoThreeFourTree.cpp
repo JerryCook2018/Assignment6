@@ -1,3 +1,9 @@
+
+/**Assingment 6.    Jerry Cook and Henry Sagehorn
+ remove and removeItem developed and coded by Heny Sagehorn*/
+
+
+
 #include "pch.h"
 #include "TwoThreeFourTree.h"
 #include <iostream>
@@ -872,7 +878,7 @@ QuadNode<ItemType>* TwoThreeFourTree<ItemType>::findNode(QuadNode<ItemType>* tre
 
 //method code by Henry S//
 template<class ItemType>
-bool TwoThreeFourTree<ItemType>::removeItem(QuadNode<ItemType>* Ptr, const ItemType& entry)	//Henry S
+bool TwoThreeFourTree<ItemType>::removeItem(QuadNode<ItemType>* Ptr,  ItemType& entry)	//Henry S
 {
 	QuadNode<ItemType>* removeNode = findNode(Ptr, entry);
 	QuadNode<ItemType>* tempNode = new QuadNode<ItemType>();
@@ -896,19 +902,19 @@ bool TwoThreeFourTree<ItemType>::removeItem(QuadNode<ItemType>* Ptr, const ItemT
 						tempNode = tempNode->getLeftChildPtr();
 					}
 
-					else if ((entry > tempNode->getSmallItem()) && (entry < tempNode->getMidItem()))
+					else if ((entry > tempNode->getSmallItem()) && (entry < tempNode->getMiddleItem()))
 					{
 						tempNode = tempNode->getLeftMidChildPtr();
 					}
 
-					else if ((entry > tempNode->getMidItem()) && (entry < tempNode->getLargeItem()))
+					else if ((entry > tempNode->getMiddleItem()) && (entry < tempNode->getLargeItem()))
 					{
 						tempNode = tempNode->getRightMidChildPtr();
 					}
 
 					else if (entry > tempNode->getLargeItem())
 					{
-						tempNode = tempNode->getRightPtr();
+						tempNode = tempNode->getRightChildPtr();
 					}
 				}
 
@@ -947,20 +953,20 @@ bool TwoThreeFourTree<ItemType>::removeItem(QuadNode<ItemType>* Ptr, const ItemT
 			if (removeNode->getSmallItem() == entry)
 			{
 				ItemType temp = removeNode->getSmallItem();
-				removeNode->setSmallItem(tempNode->getSmallItem);
+				removeNode->setSmallItem(tempNode->getSmallItem());
 				tempNode->setSmallItem(temp);
 			}
-			else if (removeNode->getMidItem() == entry)
+			else if (removeNode->getMiddleItem() == entry)
 			{
-				ItemType temp = removeNode->getMidItem();
-				removeNode->setMidItem(tempNode->getSmallItem);
+				ItemType temp = removeNode->getMiddleItem();
+				removeNode->setMiddleItem(tempNode->getSmallItem());
 				tempNode->setSmallItem(temp);
 			}
 
 			else if (removeNode->getLargeItem() == entry)
 			{
 				ItemType temp = removeNode->getLargeItem();
-				removeNode->setLargeItem(tempNode->getSmallItem);
+				removeNode->setLargeItem(tempNode->getSmallItem());
 				tempNode->setSmallItem(temp);
 			}
 
@@ -971,22 +977,22 @@ bool TwoThreeFourTree<ItemType>::removeItem(QuadNode<ItemType>* Ptr, const ItemT
 				tempNode->setLargeItem(NULL);
 			}
 
-			else if ((tempNode->getLargeItem() == entry) && (tempNode->getMidItem() != NULL))
+			else if ((tempNode->getLargeItem() == entry) && (tempNode->getMiddleItem() != NULL))
 			{
-				tempNode->setLargeItem(tempNode->getMidItem());
-				tempNode->setMidItem(NULL);
+				tempNode->setLargeItem(tempNode->getMiddleItem());
+				tempNode->setMiddleItem(NULL);
 
 			}
 
-			else if ((tempNode->getLargeItem() == entry) && (tempNode->getMidItem() == NULL))
+			else if ((tempNode->getLargeItem() == entry) && (tempNode->getMiddleItem() == NULL))
 			{
 				tempNode->setLargeItem(NULL);
 
 			}
 
-			else if ((tempNode->getMidItem() == entry))
+			else if ((tempNode->getMiddleItem() == entry))
 			{
-				tempNode->setMidItem(NULL);
+				tempNode->setMiddleItem(NULL);
 			}
 
 			else if (tempNode->getLargeItem() == NULL)
@@ -1001,7 +1007,7 @@ bool TwoThreeFourTree<ItemType>::removeItem(QuadNode<ItemType>* Ptr, const ItemT
 				{
 					if (tempNode == parentNode->getRightChildPtr())
 					{
-						mergeNode == parentNode->getRightMidChildPtr();
+						mergeNode = parentNode->getRightMidChildPtr();
 						if (mergeNode->getLargeItem() != NULL)
 						{
 
@@ -1015,7 +1021,7 @@ bool TwoThreeFourTree<ItemType>::removeItem(QuadNode<ItemType>* Ptr, const ItemT
 }
 
 template<class ItemType>
-void TwoThreeFourTree<ItemType>::remove(const ItemType& entry)
+void TwoThreeFourTree<ItemType>::remove( ItemType& entry)
 {
 	QuadNode<ItemType>* tempNode = rootPtr;
 

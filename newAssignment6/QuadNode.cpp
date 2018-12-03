@@ -1,3 +1,8 @@
+
+/**Assingment 6.    Jerry Cook and Henry Sagehorn
+ remove and removeItem developed and coded by Heny Sagehorn*/
+
+
 #include "pch.h"
 #include"QuadNode.h"
 

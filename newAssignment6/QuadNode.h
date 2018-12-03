@@ -1,5 +1,8 @@
 /**@file QuadNode.h*/
 
+/**Assingment 6.    Jerry Cook and Henry Sagehorn
+ remove and removeItem developed and coded by Heny Sagehorn*/
+
 #pragma once
 #include"pch.h"
 
